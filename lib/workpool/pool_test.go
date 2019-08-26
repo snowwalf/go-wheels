@@ -101,7 +101,7 @@ func TestPoolScale(t *testing.T) {
 		assert.Nil(t, pool.Async(context.Background(), i, callback))
 	}
 
-	pool.Scale(5, false)
+	assert.NoError(t, pool.Scale(5, false))
 	atomic.StoreInt64(&scaled, 1)
 	wg.Wait()
 	pool.Stop()
@@ -126,7 +126,7 @@ func TestPoolScale(t *testing.T) {
 		wg.Add(1)
 		assert.Nil(t, pool.Async(context.Background(), i, callback))
 	}
-	pool.Scale(2, false)
+	assert.NoError(t, pool.Scale(2, false))
 	atomic.StoreInt64(&scaled, 1)
 	wg.Wait()
 }

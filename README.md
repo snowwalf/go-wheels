@@ -4,5 +4,3 @@
 
 # go-wheels
 golang common library
-
-go test -race -coverprofile=coverage.txt ./...
